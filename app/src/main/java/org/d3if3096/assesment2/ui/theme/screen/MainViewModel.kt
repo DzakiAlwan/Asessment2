@@ -1,44 +1,18 @@
 package org.d3if3096.assesment2.ui.theme.screen
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
+import org.d3if3096.assesment2.database.MotorDao
 import org.d3if3096.assesment2.model.Motor
 
-class MainViewModel : ViewModel() {
+class MainViewModel(dao: MotorDao) : ViewModel() {
 
-    val data = getDataDummy()
-
-    private fun getDataDummy(): List<Motor> {
-        val data = mutableListOf<Motor>()
-        data.add(
-            Motor(
-                1,"Dzaki Alwan Firjatullah",
-                "c1234567",
-                "Honda",
-                "Vario 125"
-
-
-            )
-        )
-        data.add(
-            Motor(
-                2,
-                "Jonathan Jeheskiel Tewal",
-                "c1234567",
-                "Yamaha",
-                "Aerox 155"
-            )
-        )
-        data.add(
-            Motor(
-                3,
-                "Syaidina Arafhan",
-                "c1234567",
-                "Kawasaki",
-                "Klx 150"
-            )
-        )
-
-
-        return data
-    }
+    val data: StateFlow<List<Motor>> = dao.getMotor().stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000L),
+        initialValue = emptyList()
+    )
 }
