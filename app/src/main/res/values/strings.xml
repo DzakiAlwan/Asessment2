@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Assesment2</string>
-    <string name="list_kosong">Belum ada data</string>
+    <string name="list_kosong">Tidak ada data</string>
     <string name="diklik">%1$s diklik!</string>
     <string name="penitipan_motor">Penitipan Motor</string>
-    <string name="edit_motor">Edit Motoor</string>
+    <string name="edit_motor">Edit Motor</string>
     <string name="nama">Nama pemilik</string>
     <string name="plat">Plat Nomor</string>
     <string name="merk">Merk</string>
@@ -13,4 +13,7 @@
     <string name="invalid">Nama, plat, merk, dan jenis tidak boleh kosong</string>
     <string name="lainnya">Lainnya</string>
     <string name="hapus">Hapus</string>
+    <string name="pesan_hapus">Hapus ini??</string>
+    <string name="tombol_hapus">Hapus</string>
+    <string name="tombol_batal">Batal</string>
 </resources>

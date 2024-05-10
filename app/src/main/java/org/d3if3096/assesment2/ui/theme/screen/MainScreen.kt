@@ -53,8 +53,8 @@ fun MainScreen(navController: NavHostController){
                     Text(text = stringResource(id = R.string.app_name))
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
+                    containerColor = MaterialTheme.colorScheme.error,
+                    titleContentColor = MaterialTheme.colorScheme.secondaryContainer,
                 )
             )
         },
@@ -68,7 +68,7 @@ fun MainScreen(navController: NavHostController){
                 Icon(
                     imageVector = Icons.Filled.Add,
                     contentDescription = stringResource(R.string.penitipan_motor),
-                    tint = MaterialTheme.colorScheme.primary)
+                    tint = MaterialTheme.colorScheme.inverseSurface)
             }
         }
 
