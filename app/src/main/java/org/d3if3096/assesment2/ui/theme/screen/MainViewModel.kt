@@ -6,18 +6,39 @@ import org.d3if3096.assesment2.model.Motor
 class MainViewModel : ViewModel() {
 
     val data = getDataDummy()
-    private fun getDataDummy(): List<Motor>{
+
+    private fun getDataDummy(): List<Motor> {
         val data = mutableListOf<Motor>()
-        for (i in 29 downTo 20){
-            data.add(
-                Motor(
-                    i.toLong(),
-                    "Dzaki Alwan",
-                    "yamaha",
-                    "nmax"
-                )
+        data.add(
+            Motor(
+                1,"Dzaki Alwan Firjatullah",
+                "c1234567",
+                "Honda",
+                "Vario 125"
+
+
             )
-        }
+        )
+        data.add(
+            Motor(
+                2,
+                "Jonathan Jeheskiel Tewal",
+                "c1234567",
+                "Yamaha",
+                "Aerox 155"
+            )
+        )
+        data.add(
+            Motor(
+                3,
+                "Syaidina Arafhan",
+                "c1234567",
+                "Kawasaki",
+                "Klx 150"
+            )
+        )
+
+
         return data
     }
 }

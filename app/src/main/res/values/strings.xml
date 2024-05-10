@@ -2,6 +2,12 @@
     <string name="app_name">Assesment2</string>
     <string name="list_kosong">Belum ada data</string>
     <string name="diklik">%1$s diklik!</string>
-    <string name="tambah_motor">Tambah Motor</string>
-    <string name="tambah_error">Belum bisa Tambah jenis Motor</string>
+    <string name="penitipan_motor">Penitipan Motor</string>
+    <string name="edit_motor">Edit Motoor</string>
+    <string name="nama">Nama pemilik</string>
+    <string name="plat">Plat Nomor</string>
+    <string name="merk">Merk</string>
+    <string name="jenis">Jenis</string>
+    <string name="simpan">Simpan</string>
+    <string name="kembali">Kembali</string>
 </resources>
