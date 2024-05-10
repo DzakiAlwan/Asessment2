@@ -10,4 +10,7 @@
     <string name="jenis">Jenis</string>
     <string name="simpan">Simpan</string>
     <string name="kembali">Kembali</string>
+    <string name="invalid">Nama, plat, merk, dan jenis tidak boleh kosong</string>
+    <string name="lainnya">Lainnya</string>
+    <string name="hapus">Hapus</string>
 </resources>

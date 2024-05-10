@@ -18,4 +18,10 @@ interface MotorDao {
 
     @Query("SELECT * FROM motor ORDER BY nama_pengguna DESC")
     fun getMotor() : Flow<List<Motor>>
+
+    @Query("SELECT * FROM motor WHERE id = :id")
+    suspend fun getMotorById(id: Long): Motor?
+
+    @Query("DELETE FROM motor WHERE id = :id")
+    suspend fun deleteById(id: Long)
 }
