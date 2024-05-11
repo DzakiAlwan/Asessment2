@@ -92,7 +92,7 @@ fun DetailScreen(navController: NavHostController, id: Long? = null){
                         Icon(
                             imageVector = Icons.Filled.ArrowBack,
                             contentDescription = stringResource(id = R.string.kembali),
-                            tint = MaterialTheme.colorScheme.primary
+                            tint = MaterialTheme.colorScheme.secondaryContainer
                         )
                     }
                 },
@@ -103,8 +103,8 @@ fun DetailScreen(navController: NavHostController, id: Long? = null){
                         Text(text = stringResource(id = R.string.edit_motor))
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary
+                    containerColor = MaterialTheme.colorScheme.error,
+                    titleContentColor = MaterialTheme.colorScheme.secondaryContainer
                 ),
                 actions = {
                     IconButton(onClick = {
@@ -121,7 +121,7 @@ fun DetailScreen(navController: NavHostController, id: Long? = null){
                         Icon(
                             imageVector = Icons.Filled.Check,
                             contentDescription = stringResource(id = R.string.simpan),
-                            tint = MaterialTheme.colorScheme.primary
+                            tint = MaterialTheme.colorScheme.secondaryContainer
                         )
                     }
                     if (id != null) {

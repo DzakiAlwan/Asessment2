@@ -1,6 +1,7 @@
 package org.d3if3096.assesment2.ui.theme.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -27,6 +29,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -37,17 +40,22 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.d3if3096.assesment2.R
 import org.d3if3096.assesment2.database.MotorDb
 import org.d3if3096.assesment2.model.Motor
 import org.d3if3096.assesment2.navigation.Screen
 import org.d3if3096.assesment2.ui.theme.Assesment2Theme
+import org.d3if3096.assesment2.util.SettingsDataStore
 import org.d3if3096.assesment2.util.ViewModelFactory
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(navController: NavHostController){
-
+    val dataStore = SettingsDataStore(LocalContext.current)
+    val showList by dataStore.layoutFlow.collectAsState(true)
 
     Scaffold (
         topBar = {
@@ -58,12 +66,19 @@ fun MainScreen(navController: NavHostController){
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.error,
                     titleContentColor = MaterialTheme.colorScheme.secondaryContainer,
-                )
+                ),
+                actions = {
+                    IconButton(onClick = { CoroutineScope(Dispatchers.IO).launch {
+                        dataStore.saveLayout(!showList)
+                    } }) {
+                        
+                    }}
             )
         },
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
+
                     navController.navigate(Screen.FormBaru.route)
                 }
 
@@ -98,11 +113,11 @@ fun ScreenContent(modifier: Modifier, navController: NavHostController){
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Column {
-                // Menampilkan gambar dari drawable
+
                 Image(
-                    painter = painterResource(id = R.drawable.ic_android_black_24dp), // Ganti your_image dengan nama gambar Anda di drawable
+                    painter = painterResource(id = R.drawable.ic_android_black_24dp),
                     contentDescription = "Tidak ada data",
-                    modifier = Modifier.size(50.dp) // Mengatur ukuran gambar
+                    modifier = Modifier.size(50.dp)
                 )
             }
             Text(text = stringResource(id = R.string.list_kosong))
